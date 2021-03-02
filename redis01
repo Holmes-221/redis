@@ -1,0 +1,38 @@
+端口号：6379
+select num #选择数据库，默认16个数据库中的第0个数据库
+dbsize #查看当前数据库的大小
+flushdb #清空当前库数据
+flushall #清空全部数据
+keys * #查看当前数据库的全部key值
+set key value #设置键值对
+get key #获取key的value
+exists key #判断某个键是否存在，存在返回1，不存在返回0
+move key num #将key移动到其他数据库中（num）
+ttl key #查看key的存储时间
+expire key time #设置key的存储时间time
+type key #查看key的类型
+append key1 value2 #向key1中的value1值追加值value2
+incr #自增1     decr #自减1
+incrby key increment #自己设置自增步长
+decrby key decrement #自己设置自减步长
+getrange key start end #截取key的子字符串
+setrange key start value #从start位置替换key值为value
+mset #同时设置多个值
+mget #同时获取多个值
+mset/mget 是原子性操作，要么一起成功，要么一起失败
+set user:1 name:zhangsan,age:10 #设置user:1对象，值为json格式
+mset user:1:name zhangsan user:1:age 20
+getset #先get，后set
+list（有序可重复）： lpush rpush lpop rpop lrange lset/更改值 linsert/插入值
+set（无序不可重复）：  sadd smembers\查看所有元素 scard\查看当前元素的个数 rem\移除元素 srandmember\随机抽取元素 spop\随机移除元素 smove\移动元素
+                      sdiff\差集  sinter\交集 sunion\并集
+hash(key-map集合)：hset\ hget\ hmset\ hmget\ hgetall\ hlen\ hkeys\ hvals\
+
+
+
+
+
+
+
+redis是单线程的，基于内存操作
+redis是将全部数据放在内存中的
